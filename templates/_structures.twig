@@ -1,0 +1,38 @@
+{% cache using key "structures-widget"~siteUrl %}
+
+{% set sections = craft.sections.getEditableSections() %}
+{% set newEntrySections = [] %}
+
+{% for section in sections %}
+  {% if currentUser.can('createEntries:'~section.id) %}
+    {% set newEntrySections = newEntrySections|merge([section]) %}
+  {% endif %}
+{% endfor %}
+
+
+<div class="ecstructure-container">
+  {% if newEntrySections|length %}
+    <p>This widget displays a list of structures. An entry within structure is normally a page, though it doesn't have to be. The difference between a structure and a channel is that you can put one entry within a structure underneath another entry, so you could create quite a large section if need be</p>
+    <table class="data fullwidth">
+      {% for section in newEntrySections %}
+        {% if section.type == "structure" %}
+          <tr>
+            <td>
+              <a href="{{ url('entries/'~section.handle) }}">{{ section.name|t }}</a>
+            </td>
+            <td>
+              <a class="btn submit small add icon" href="{{ url('entries/'~newEntrySections[0].handle~'/new') }}">{{ "New Entry"|t }}</a>
+            </td>
+            <td>
+              <a href="{{ url('entries/'~section.handle) }}" class="btn small">Edit entries</a>
+            </td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>{{ "No entries exist yet."|t }}</p>
+  {% endif %}
+</div>
+
+{% endcache %}

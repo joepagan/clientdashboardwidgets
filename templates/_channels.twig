@@ -1,0 +1,38 @@
+{% cache using key "channel-dashboard-widget"~siteUrl %}
+
+    {% set sections = craft.sections.getEditableSections() %}
+    {% set newEntrySections = [] %}
+
+    {% for section in sections %}
+      {% if currentUser.can('createEntries:'~section.id) %}
+        {% set newEntrySections = newEntrySections|merge([section]) %}
+      {% endif %}
+    {% endfor %}
+
+
+    <div class="ecchannel-container">
+      {% if newEntrySections|length %}
+        <p>This widget displays a list of channels. An entry within channel isn't necessarily a page, an entry in a channel could be a person used in lists of people throughout the site.</p>
+        <table class="data fullwidth">
+          {% for section in newEntrySections %}
+            {% if section.type == "channel" %}
+              <tr>
+                <td>
+                  <a href="{{ url('entries/'~section.handle) }}">{{ section.name|t }}</a>
+                </td>
+                <td>
+                  <a class="btn submit small add icon" href="{{ url('entries/'~newEntrySections[0].handle~'/new') }}">{{ "New Entry"|t }}</a>
+                </td>
+                <td>
+                  <a href="{{ url('entries/'~section.handle) }}" class="btn small">Edit entries</a>
+                </td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </table>
+      {% else %}
+        <p>{{ "No entries exist yet."|t }}</p>
+      {% endif %}
+    </div>
+
+{% endcache %}

@@ -1,0 +1,37 @@
+{% cache using key "singles-widget"~siteUrl %}
+
+    {% set sections = craft.sections.getEditableSections() %}
+    {% set newEntrySections = [] %}
+
+    {# this can be developed a little further by wrapping the create entry btn in an if & edit entry in an if based on currentUser permissions on line 7#}
+
+    {% for section in sections %}
+      {% if currentUser.can('editEntries:'~section.id) %}
+        {% set newEntrySections = newEntrySections|merge([section]) %}
+      {% endif %}
+    {% endfor %}
+
+
+    <div class="ecsingle-container">
+      {% if newEntrySections|length %}
+        <p>This is a list of single pages, these are often 'one off' pages, though in some cases they could be a "Top level" page within a channel or a structure.</p>
+        <table class="data fullwidth">
+          {% for section in newEntrySections %}
+            {% if section.type == "single" %}
+              <tr>
+                <td>
+
+                  {% set singleEntry = craft.entries({sectionId:section.id})|first %}
+                  <a href="{{ singleEntry.getCpEditUrl() }}">{{singleEntry.title}}</a>
+
+                </td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </table>
+      {% else %}
+        <p>{{ "No entries exist yet."|t }}</p>
+      {% endif %}
+    </div>
+
+{% endcache %}

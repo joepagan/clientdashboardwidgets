@@ -1,0 +1,144 @@
+<div class="ecsingle-container">
+  <p>This widget has been setup to avoid potential problems when a user is new to CraftCMS.</p>
+  <p>The majority of the functionality provided in this widget can be done via the <a href="{{ url('entries') }}">entries dashboard area</a>, globals can be edited in the sidebar also</p>
+
+  <h3>CraftCMS</h3>
+  <p>This CMS (Content Management System), is called CraftCMS.</p>
+  <p>CraftCMS stores it's data in "entries", a page can be setup as an entry, but, so could an item of data that isn't a page. For example, a testimonial entry, or, a quote entry, may instead be listed on various places throughout the site instead (on a product page and the home page).</p>
+  <p>There are 3 areas in which an entry could be setup:</p>
+    <ol>
+      <li>A "Single" can be an independent entry on it's own (a home page for example)</li>
+      <li>A "Channel" is often a collection of entries where each entry has very similar type of content, If an entry created in a channel that is setup to display on an URL, it will often live at the exact same location. A good example of this is a News channel, each News entry will live right under the news section <code>/news</code> ).</li>
+      <li>A "Structure" is used for nesting entries, this is often very useful for the main sections of website where you will need a page to live under others. For example, every page in the following chain will be in a structure as either a listing page, or a product page: <b>Top Level Entry › Listing Entry › Sub Listing Entry › Product Entry</b>. Entries here can have multiple "types", which can be setup to look completely different &amp; have different fields assigned to them.</li>
+    </ol>
+
+  <h3>Adding a new entry at the wrong level</h3>
+  <p>As the "Structure" widget already mentions, you have the ability to add an entry, make it a child entry, or, a the parent of another entry, so, these buttons help you directly add a page exactly under the right section.</p>
+  <p>To view the entries at different levels within a "Structure", you can view them in the <a href="{{ url('entries') }}">entries</a> area which shows you how they are nested.</p>
+  <p>If you accidentally put one at the incorrect level, they can be rearranged when viewing the structure, as shown here:</p>
+  <img src="{{ resourceUrl('clientwidgets/site/structure-example.gif') }}" alt="" style="max-width:100%;">
+  <p>&nbsp;</p>
+
+  <h3>Adding a new page entry with an incorrect entry type</h3>
+  <p>You can change a new entry's "Entry Types" (as seen in the sidebar when editing an entry), a page type can determine which fields will exist on the new page <strong>and</strong> which template will be used on the front end. For example, this means, if you are adding a "Case Report" entry, it will have different fields to adding a "Article" entry, or a "Listing" page.</p>
+  <p>If you accidentally select the wrong one, you can change the entry type (which will also update the fields) in the entry's sidebar when editing an entry</p>
+  <img src="{{ resourceUrl('clientwidgets/site/entrytype-example.gif') }}" alt="" style="max-width:100%;">
+
+  <hr>
+
+  <h2>Globals</h2>
+
+  <p>Globals are fields can be used across almost every page on the website.</p>
+
+  {# Company Information #}
+  {% set globalId = 5 %}
+  {% if currentUser.can('editGlobalSet:'~globalId) %}
+    {% set globalSet = craft.globals.getSetById(globalId) %}
+    <h3>Edit {{ globalSet.name }}</h3>
+    <h4>It is essential that the Company Information data in this global area is reviewed by you, and, that all data is correct. This data could will be sent to Google using Structure Data objects. Failure to check this could result in incorrect data being displayed in Google listings.</h4>
+    <p><a class="btn edit icon" title="Edit {{ globalSet.name }}" href="{{ globalSet.cpEditUrl }}">{{ "Edit " ~ globalSet.name }}</a></p>
+  {% endif %}
+
+  {# Client Logos #}
+  {% set globalId = 233 %}
+  {% if currentUser.can('editGlobalSet:'~globalId) %}
+    {% set globalSet = craft.globals.getSetById(globalId) %}
+    <h3>Edit {{ globalSet.name }}</h3>
+    <p>These logos are featured on various pages around the site in an animated slider</p>
+    <p><a class="btn edit icon" title="Edit {{ globalSet.name }}" href="{{ globalSet.cpEditUrl }}">{{ "Edit " ~ globalSet.name }}</a></p>
+  {% endif %}
+
+  {# Copyright notice #}
+  {% set globalId = 6 %}
+  {% if currentUser.can('editGlobalSet:'~globalId) %}
+    {% set globalSet = craft.globals.getSetById(globalId) %}
+    <h3>Edit {{ globalSet.name }}</h3>
+    <p>This text should be displayed in the footer area of your website.</p>
+    <p><a class="btn edit icon" title="Edit {{ globalSet.name }}" href="{{ globalSet.cpEditUrl }}">{{ "Edit " ~ globalSet.name }}</a></p>
+  {% endif %}
+
+  {# Downloads #}
+  {% set globalId = 13 %}
+  {% if currentUser.can('editGlobalSet:'~globalId) %}
+    {% set globalSet = craft.globals.getSetById(globalId) %}
+    <h3>Edit {{ globalSet.name }}</h3>
+    <p>These downloads are featured on various pages around the site, and, can be displayed in addition to a specific entry's downloads.</p>
+    <p><a class="btn edit icon" title="Edit {{ globalSet.name }}" href="{{ globalSet.cpEditUrl }}">{{ "Edit " ~ globalSet.name }}</a></p>
+  {% endif %}
+
+  {# Footer Logos #}
+  {% set globalId = 12 %}
+  {% if currentUser.can('editGlobalSet:'~globalId) %}
+    {% set globalSet = craft.globals.getSetById(globalId) %}
+    <h3>Edit {{ globalSet.name }}</h3>
+    <p>These logos are displayed in the footer.</p>
+    <p><a class="btn edit icon" title="Edit {{ globalSet.name }}" href="{{ globalSet.cpEditUrl }}">{{ "Edit " ~ globalSet.name }}</a></p>
+  {% endif %}
+
+  {# Quick Enquire Message #}
+  {% set globalId = 234 %}
+  {% if currentUser.can('editGlobalSet:'~globalId) %}
+    {% set globalSet = craft.globals.getSetById(globalId) %}
+    <h3>Edit {{ globalSet.name }}</h3>
+    <p>This message is displayed in various places around the site, <b>Do not change the text "COMPANY_INFORMATION_TELEPHONE"</b>, this will be replaced by the system, if this is change the company information phone number will not replace it.</p>
+    <p><a class="btn edit icon" title="Edit {{ globalSet.name }}" href="{{ globalSet.cpEditUrl }}">{{ "Edit " ~ globalSet.name }}</a></p>
+  {% endif %}
+
+  {# Strapline #}
+  {% set globalId = 463 %}
+  {% if currentUser.can('editGlobalSet:'~globalId) %}
+    {% set globalSet = craft.globals.getSetById(globalId) %}
+    <h3>Edit {{ globalSet.name }}</h3>
+    <p>The strapline which sits underneath the secondary navigation.</p>
+    <p><a class="btn edit icon" title="Edit {{ globalSet.name }}" href="{{ globalSet.cpEditUrl }}">{{ "Edit " ~ globalSet.name }}</a></p>
+  {% endif %}
+
+
+  <hr>
+
+  {# Standard Pages #}
+  {% set generalPagesSectionId = 20 %}
+  {% set generalPagesSection = craft.sections.getSectionById(generalPagesSectionId) %}
+  {% if currentUser.can('createEntries:'~generalPagesSectionId) %}
+
+    <h2>{{ generalPagesSection.name }}</h2>
+    <p>
+        <a class="btn submit add icon" title="A standard content page like Privacy Policy, this is a structure (so it can be nested if needed)" href="{{ url('entries/'~generalPagesSection.handle~'/new?typeId=4') }}">{{ "Create Standard Page entry"|t }}</a>
+        <a class="btn edit icon" title="Edit 'General Pages' Entries" href="{{ url('entries/'~generalPagesSection.handle~'') }}">{{ "Edit Standard Pages Entries"|t }}</a>
+    </p>
+    <p>This is a structure, so it can have nested pages, please leave the page type as "Standard", clicking the button bellow will auto-select "Standard" for you.</p>
+    <p>This structure is intended for pages that do not really sit under a particular area of the site, for example: privacy policy, terms &amp; conditions, about.</p>
+    <p>When creating a new page you can set a parent page within the settings area.</p>
+
+
+    <hr>
+
+  {% endif %}
+
+
+
+  {# News #}
+
+  {# News Channel #}
+  {% set newsSectionId = 2 %}
+  {% set newsSection = craft.sections.getSectionById(newsSectionId) %}
+
+  {% if currentUser.can('createEntries:'~newsSectionId) %}
+
+    <h2>News</h2>
+    <p>You also do not have to worry about nesting news articles, it will always live under the path <code>/news</code> because they are setup as a channel.</p>
+
+    <h3>News Listing Page</h3>
+    <p><a class="btn edit icon" title="Edit News Listing page" href="{{ craft.entries.id(86).first().cpEditUrl }}">{{ "Edit News Listing Page"|t }}</a></p>
+
+    <h3>{{ newsSection.name }}</h3>
+    <p>
+        <a class="btn submit add icon" href="{{ url('entries/'~newsSection.handle~'/new') }}">{{ "Create News Article entry"|t }}</a>
+        <a class="btn edit icon" title="Edit 'News Article' Entries" href="{{ url('entries/'~newsSection.handle~'') }}">{{ "Edit News Article Entries"|t }}</a>
+    </p>
+
+    <hr>
+
+  {% endif %}
+
+</div>

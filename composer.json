@@ -1,0 +1,14 @@
+{
+	"name": "lexbi/clientdashboardwidgets",
+	"description": "A set of CraftCMS dashboard widgets that are useful for a client user.",
+	"type": "craft-plugin",
+	"authors": [
+		{
+			"name": "Joe Pagan",
+			"homepage": "https://www.joe-pagan.com"
+		}
+	],
+	"require": {
+		"composer/installers": "~1.0"
+	}
+}
