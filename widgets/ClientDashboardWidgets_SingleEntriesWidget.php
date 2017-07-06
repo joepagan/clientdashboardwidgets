@@ -1,7 +1,7 @@
 <?php
 namespace Craft;
 
-class ClientWidgets_SingleEntriesWidget extends BaseWidget
+class ClientDashboardWidgets_SingleEntriesWidget extends BaseWidget
 {
 
 	protected $colspan = 1;
@@ -13,6 +13,6 @@ class ClientWidgets_SingleEntriesWidget extends BaseWidget
 
 	public function getBodyHtml()
 	{
-	    return craft()->templates->render('clientwidgets/_singles');
+	    return craft()->templates->render('clientdashboardwidgets/_singles');
 	}
 }
