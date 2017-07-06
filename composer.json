@@ -1,5 +1,5 @@
 {
-	"name": "lexbi/clientdashboardwidgets",
+	"name": "joepagan/clientdashboardwidgets",
 	"description": "A set of CraftCMS dashboard widgets that are useful for a client user.",
 	"type": "craft-plugin",
 	"authors": [

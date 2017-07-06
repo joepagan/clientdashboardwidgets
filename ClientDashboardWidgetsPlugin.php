@@ -44,7 +44,7 @@ class ClientDashboardWidgetsPlugin extends BasePlugin
      */
     public function getDocumentationUrl()
     {
-        return 'https://github.com/lexbi/clientdashboardwidgets/blob/master/README.md';
+        return 'https://github.com/joepagan/clientdashboardwidgets/blob/master/README.md';
     }
 
     /**
@@ -52,7 +52,7 @@ class ClientDashboardWidgetsPlugin extends BasePlugin
      */
     public function getReleaseFeedUrl()
     {
-        return 'https://raw.githubusercontent.com/lexbi/clientdashboardwidgets/master/releases.json';
+        return 'https://raw.githubusercontent.com/joepagan/clientdashboardwidgets/master/releases.json';
     }
 
     /**
