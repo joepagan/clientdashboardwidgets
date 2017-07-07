@@ -6,21 +6,21 @@ A set of CraftCMS dashboard widgets that are useful for a client user.
 
 What does the plugin include?
 
-### Channel List Widget
+### CMS Guide Widget
 
-![Channel List Widget](resources/screenshots/channel-widget.png)
+![CMS Guide Widget](resources/screenshots/cmsguide-widget.png)
 
 ### Structure List Widget
 
 ![Structure List Widget](resources/screenshots/structure-widget.png)
 
+### Channel List Widget
+
+![Channel List Widget](resources/screenshots/channel-widget.png)
+
 ### Single Entries List Widget
 
 ![Single Entries List Widget](resources/screenshots/singles-widget.png)
-
-### CMS Guide Widget
-
-![CMS Guide Widget](resources/screenshots/cmsguide-widget.png)
 
 ## Installation
 
