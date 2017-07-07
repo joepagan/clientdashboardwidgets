@@ -22,6 +22,8 @@ I have found the `max-width:100%` css is needed if you don't want it to overlap 
 
 Tip: mp4s don't seem to work too well, though YouTube embeds can, though you may need a `max-width:100%` setting on the iframe element.
 
+Feel free to suggest any amendments, create an issue or whatever...
+
 ## What does the plugin include?
 
 ### CMS Guide Widget
