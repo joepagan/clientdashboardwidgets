@@ -2,6 +2,26 @@
 
 A set of CraftCMS dashboard widgets that are useful for a client user.
 
+## Client Dashboard Widgets Overview
+
+What does the plugin include?
+
+### Channel List Widget
+
+![Channel List Widget](resources/screenshots/channel-widget.png)
+
+### Structure List Widget
+
+![Structure List Widget](resources/screenshots/structure-widget.png)
+
+### Single Entries List Widget
+
+![Single Entries List Widget](resources/screenshots/singles-widget.png)
+
+### CMS Guide Widget
+
+![CMS Guide Widget](resources/screenshots/cmsguide-widget.png)
+
 ## Installation
 
 To install Client Dashboard Widgets, follow these steps:
@@ -14,22 +34,7 @@ To install Client Dashboard Widgets, follow these steps:
 
 Client Dashboard Widgets works on Craft 2.4.x and Craft 2.5.x.
 
-## Client Dashboard Widgets Overview
-
-What does the plugin include?
-
-- Channels list
-- Structures list
-- Single entries list
-- CMS Guide widget
-
-## mov -> gif conversion
-
-For my own convenience, this is the code from quicktime mov > gif which I will forget about.
-
-    time ffmpeg -i  example.mov -r 10 -f image2pipe -vcodec ppm - |  time convert -verbose +dither -layers Optimize \> - gif:- | gifsicle --colors 128 --delay=5 --loop --optimize=3 --multifile ->  example.gif
-
-### Changelog
+## Changelog
 
 *06/07/2017*
 
@@ -42,5 +47,11 @@ For my own convenience, this is the code from quicktime mov > gif which I will f
     - adding commented out global examples (that could be used across all projects)
     - added commented out structure example
     - added new entry type gif
+
+####mov -> gif conversion
+
+For my own convenience, a little script I use for gifs which I will forget about.
+
+    time ffmpeg -i  example.mov -r 10 -f image2pipe -vcodec ppm - |  time convert -verbose +dither -layers Optimize \> - gif:- | gifsicle --colors 128 --delay=5 --loop --optimize=3 --multifile ->  example.gif
 
 Brought to you by [Joe Pagan](https://www.joe-pagan.com)
