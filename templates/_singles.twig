@@ -18,14 +18,14 @@
         <table class="data fullwidth">
           {% for section in newEntrySections %}
             {% if section.type == "single" %}
-              <tr>
-                <td>
-
-                  {% set singleEntry = craft.entries({sectionId:section.id})|first %}
-                  <a href="{{ singleEntry.getCpEditUrl() }}">{{singleEntry.title}}</a>
-
-                </td>
-              </tr>
+              {% set singleEntry = craft.entries({sectionId:section.id}).first %}
+              {% if singleEntry %}
+                <tr>
+                  <td>
+                    <a href="{{ singleEntry.getCpEditUrl() }}">{{singleEntry.title}}</a>
+                  </td>
+                </tr>
+              {% endif %}
             {% endif %}
           {% endfor %}
         </table>
